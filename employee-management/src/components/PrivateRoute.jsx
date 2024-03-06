@@ -1,8 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import { Navigate } from "react-router-dom";
 
-const PrivateRoute = () => {
-  return <div></div>;
+// eslint-disable-next-line react/prop-types
+const PrivateRoute = ({ children }) => {
+  const isValid = localStorage.getItem("valid");
+
+  return isValid ? children : <Navigate to="/" />;
 };
 
 export default PrivateRoute;

@@ -22,6 +22,7 @@ const Login = () => {
       .post("http://localhost:3000/auth/adminlogin", values)
       .then((result) => {
         if (result.data.loginStatus) {
+          localStorage.setItem("valid", true);
           navigate("/dashboard");
         } else {
           setError(result.data.Error);
@@ -33,7 +34,7 @@ const Login = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
       <div className="p-3 rounded w-25 border loginForm">
-        <div className="text-danger">
+        <div className="text-warning">
           {/* displaying any error message */}
           {error && error}
         </div>

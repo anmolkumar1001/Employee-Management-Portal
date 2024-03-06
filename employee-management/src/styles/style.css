@@ -1,7 +1,7 @@
 .loginPage {
-  background: url("src/assets/employee.jpeg");
+  background: url("src/assets/empl.jpg");
   background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(10, 10, 10, 0.5)),
-    url("src/assets/employee.jpeg");
+    url("src/assets/empl.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 120%;
