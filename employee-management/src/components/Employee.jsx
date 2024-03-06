@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Employee = () => {
   const [employee, setEmployee] = useState([]);
-  //   const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -24,7 +24,7 @@ const Employee = () => {
       .delete("http://localhost:3000/auth/delete_employee/" + id)
       .then((result) => {
         if (result.data.Status) {
-          window.location.reload();
+          window.location.reload(); // refresh page to see the changes
         } else {
           alert(result.data.Error);
         }

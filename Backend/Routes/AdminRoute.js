@@ -127,4 +127,59 @@ router.put("/edit_employee/:id", (req, res) => {
   });
 });
 
+router.delete("/delete_employee/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM employees where id = ?";
+  conn.query(sql, [id], (err, result) => {
+    if (err) {
+      return res.json({ Status: false, Error: "Query Error" + err });
+    }
+    return res.json({ Status: true, Result: result });
+  });
+});
+
+router.get("/admin_count", (req, res) => {
+  const sql = "SELECT COUNT(id) as admin from admin";
+  conn.query(sql, (err, result) => {
+    if (err) {
+      return res.json({ Status: false, Error: "Query Error" + err });
+    }
+    return res.json({ Status: true, Result: result });
+  });
+});
+
+router.get("/employee_count", (req, res) => {
+  const sql = "SELECT COUNT(id) as employee from employees";
+  conn.query(sql, (err, result) => {
+    if (err) {
+      return res.json({ Status: false, Error: "Query Error" + err });
+    }
+    return res.json({ Status: true, Result: result });
+  });
+});
+
+router.get("/salary_count", (req, res) => {
+  const sql = "SELECT SUM(salary) as salaryOFEmp from employees";
+  conn.query(sql, (err, result) => {
+    if (err) {
+      return res.json({ Status: false, Error: "Query Error" + err });
+    }
+    return res.json({ Status: true, Result: result });
+  });
+});
+
+router.get("/admin_records", (req, res) => {
+  const sql = "SELECT * FROM admin";
+  conn.query(sql, (err, result) => {
+    if (err) {
+      return res.json({ Status: false, Error: "Query Error" + err });
+    }
+    return res.json({ Status: true, Result: result });
+  });
+});
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  return res.json({ Status: true });
+});
 export { router as adminRouter };

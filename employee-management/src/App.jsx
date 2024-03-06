@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
@@ -10,14 +10,30 @@ import Profile from "./components/Profile";
 import AddCategory from "./components/AddCategory";
 import AddEmployee from "./components/AddEmployee";
 import EditEmployee from "./components/EditEmployee";
+// import Start from "./components/Start";
+// import EmployeeLogin from "./components/EmployeeLogin";
+// import EmployeeDetail from "./components/EmployeeDetail";
+// import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route>
-          <Route path="/adminlogin" element={<Login />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
+        {/* <Route path="/" element={<Start />}></Route>
+        <Route path="/adminlogin" element={<Login />}></Route>
+        <Route path="/employee_login" element={<EmployeeLogin />}></Route>
+        <Route path="/employee_detail/:id" element={<EmployeeDetail />}></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        ></Route> */}
+
+        <Route path="/adminlogin" element={<Login />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />}></Route>
           <Route path="/dashboard/employee" element={<Employee />}></Route>
           <Route path="/dashboard/category" element={<Category />}></Route>

@@ -1,4 +1,5 @@
-// import React from "react";
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
@@ -10,7 +11,7 @@ const Dashboard = () => {
     axios.get("http://localhost:3000/auth/logout").then((result) => {
       if (result.data.Status) {
         localStorage.removeItem("valid");
-        navigate("/");
+        navigate("/adminlogin");
       }
     });
   };
@@ -82,6 +83,7 @@ const Dashboard = () => {
           <div className="p-2 d-flex justify-content-center shadow">
             <h4>Employee Management System</h4>
           </div>
+          {/* outlet for showing h4 to all of the pages */}
           <Outlet />
         </div>
       </div>
