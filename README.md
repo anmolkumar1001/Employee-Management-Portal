@@ -1,4 +1,5 @@
 # Employee Management System
+A website or portal where administrators and employees can create, manage, and update their profiles.
 
 ## Screenshots
 
